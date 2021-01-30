@@ -22,3 +22,25 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Note
+```
+yarn add babel-plugin-import --dev
+yarn add ant-design-vue
+yarn add less less-loader --dev
+yarn add vue-router --save
+
+```
+按需加载 需要vue.config.js中多加配置
+```
+css: {
+        loaderOptions: {
+            less: {
+                lessOptions: {
+                    javascriptEnabled: true
+                }
+          }
+        }
+    }
+```
