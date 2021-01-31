@@ -30,7 +30,7 @@ yarn add babel-plugin-import --dev
 yarn add ant-design-vue
 yarn add less less-loader --dev
 yarn add vue-router --save
-
+yarn global add webpack
 ```
 按需加载 需要vue.config.js中多加配置
 ```
