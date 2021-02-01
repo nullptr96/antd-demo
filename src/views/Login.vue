@@ -5,36 +5,30 @@
                 This is title
             </span>
         </div>
-        <a-form
+        <a-form-model
+            ref="ruleForm"
             id="components-form-demo-normal-login"
-            :form="form"
             class="login-form"
+            :model="loginForm"
             @submit="handleSubmit"
+            @submit.native.prevent
         >
-        <a-form-item>
-        <a-input
-            v-decorator="[
-            'userName',
-            { rules: [{ required: true, message: 'Please input your username!' }] },
-            ]"
-            placeholder="Username"
-        >
-        <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
-        </a-input>
-        </a-form-item>
-        <a-form-item>
-        <a-input
-            v-decorator="[
-            'password',
-            { rules: [{ required: true, message: 'Please input your Password!' }] },
-            ]"
-            type="password"
-            placeholder="Password"
-        >
+        <a-form-model-item ref="username" prop="username">
+            <a-input v-model="loginForm.user"
+                    placeholder="Username"
+            >
+            <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
+            </a-input>
+        </a-form-model-item>
+        <a-form-model-item>
+            <a-input
+                v-model="loginForm.password" 
+                placeholder="Password"
+            >
             <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
         </a-input>
-        </a-form-item>
-        <a-form-item>
+        </a-form-model-item>
+        <a-form-model-item>
         <a-checkbox
             v-decorator="[
             'remember',
@@ -56,26 +50,29 @@
         <a href="">
             register now!
         </a>
-        </a-form-item>
-        </a-form> 
+        </a-form-model-item>
+        </a-form-model> 
     </div>
   
 </template>
 
 <script>
 export default {
-  beforeCreate() {
-    this.form = this.$form.createForm(this, { name: 'normal_login' });
+  data() {
+    return {
+      loginForm: {
+        user: '',
+        password: '',
+      }
+    };
   },
   methods: {
-    handleSubmit(e) {
-      e.preventDefault();
-      this.form.validateFields((err, values) => {
-        if (!err) {
-          console.log('Received values of form: ', values);
-        }
-      });
+    handleSubmit() {
+        this.$router.push({path:'/Home'});
     },
+    resetForm() {
+      this.$refs.ruleForm.resetFields()
+    }
   },
   mounted () {//添加user-layout
     document.body.classList.add('userLayout')
@@ -93,9 +90,9 @@ export default {
     padding: 10%;
     height: 100%;
     min-height: 100%;
-    background-size: 100%;
     position: relative;
     background: #f0f2f5 url(~@/assets/background.svg) no-repeat 50%;
+    background-size: 100%;
 }
 #components-form-demo-normal-login .login-form {
   max-width: 400px;

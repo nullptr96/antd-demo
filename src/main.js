@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { Form,Input,Icon,Button,Checkbox   } from 'ant-design-vue';
+import { FormModel,Input,Icon,Button,Checkbox   } from 'ant-design-vue';
 import router from "./router";
 import './global.less' //引入全局less
 
+require('./mock/index')
 
-Vue.use(Form).use(Input).use(Icon).use(Button).use(Checkbox)
+
+Vue.use(FormModel).use(Input).use(Icon).use(Button).use(Checkbox)
 Vue.config.productionTip = false
 
 new Vue({

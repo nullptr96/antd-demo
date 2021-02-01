@@ -31,6 +31,8 @@ yarn add ant-design-vue
 yarn add less less-loader --dev
 yarn add vue-router --save
 yarn global add webpack
+yarn add mockjs --dev
+yarn add axios --dev
 ```
 按需加载 需要vue.config.js中多加配置
 ```
@@ -44,3 +46,6 @@ css: {
         }
     }
 ```
+
+require和import的区别：</br>
+前者：运行时加载，属于对象，后者：编译时加载，属于模块
