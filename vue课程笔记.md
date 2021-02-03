@@ -36,3 +36,15 @@ v-on(简化为@)：绑定事件
 v-model：双向数据绑定  
 v-pre:不进行编译直接输出  
 v-once:仅变化一次后面的内容（一般用于文章等不需要动态变化的）
+
+### ref
+用于获取（组件）实例，或者是dom元素
+
+### template&jsx
+template: 使用mustache{{}} 模板语法，扩展html  
+jsx: 使用{} js的语法扩展  
+jsx偏向逻辑开发，template偏向视图
+
+## Vuex
+view->action（通过ajax异步更新）(->mutation<->devtools 记录数据，同步)->state  
+state mutation action getter
