@@ -14,7 +14,8 @@
             @submit.native.prevent
         >
         <a-form-model-item ref="username" prop="username">
-            <a-input v-model="loginForm.user"
+            <a-input 
+                    v-model="loginForm.user"
                     placeholder="Username"
             >
             <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
@@ -26,7 +27,7 @@
                 placeholder="Password"
             >
             <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
-        </a-input>
+            </a-input>
         </a-form-model-item>
         <a-form-model-item>
         <a-checkbox
@@ -43,9 +44,11 @@
         <a class="login-form-forgot" href="">
             Forgot password
         </a>
-        <a-button type="primary" html-type="submit" class="login-form-button">
-            Log in
-        </a-button>
+        <a-button 
+                type="primary"
+                html-type="submit" 
+                class="login-form-button"
+        >Log in</a-button>
         Or
         <a href="">
             register now!
@@ -57,21 +60,22 @@
 </template>
 
 <script>
+//import { mapActions } from 'vuex'
 export default {
   data() {
     return {
-      loginForm: {
-        user: '',
-        password: '',
-      }
+        loginForm: {
+            username: '',
+            password: ''
+        }
     };
   },
   methods: {
+    // ...mapActions([
+
+    // ]),
     handleSubmit() {
-        this.$router.push({path:'/Home'});
-    },
-    resetForm() {
-      this.$refs.ruleForm.resetFields()
+        
     }
   },
   mounted () {//添加user-layout
