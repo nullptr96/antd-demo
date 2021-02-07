@@ -48,3 +48,19 @@ jsx偏向逻辑开发，template偏向视图
 ## Vuex
 view->action（通过ajax异步更新）(->mutation<->devtools 记录数据，同步)->state  
 state mutation action getter
+
+### 零碎
+this.$form 表示获取
+```js
+const {comment,index,deleteComment} = this 
+```
+
+等价于
+```js
+const  comment = this.comment
+const  index = this.index
+const  deleteComment = this.deleteComment
+```
+
+js中的this指代对象取决于谁调用它  
+回调函数作为参数装入一个主体函数中，主体函数根据功能
