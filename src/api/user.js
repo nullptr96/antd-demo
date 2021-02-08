@@ -1,4 +1,4 @@
-import { axios } from '@/utils/request'
+import { axios } from '@/util/request'
 
 export function login(parameter) {
     return axios({

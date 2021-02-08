@@ -60,22 +60,30 @@
 </template>
 
 <script>
-// import { mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
   data() {
     return {
         loginForm: {
             username: '',
             password: ''
-        }
+        },
+        
     };
   },
   methods: {
-    // ...mapActions([
+    ...mapActions(['Login','Logout']),
+    handleSubmit(e) {
+        e.preventDefault();
 
-    // ]),
-    handleSubmit() {
-        
+        const {
+        loginForm,
+        Login,
+        } = this
+        console.log(loginForm);
+        Login(loginForm)
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err))
     }
   },
   mounted () {//添加user-layout
